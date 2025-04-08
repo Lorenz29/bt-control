@@ -20,7 +20,7 @@ const int dhtType = DHT22;
 DHT dht(dhtPin, dhtType);
 
 // Define el intervalo de tiempo entre lecturas del sensor (en milisegundos)
-const long intervaloLectura = 2000; // Leer cada 2 segundos
+const long intervaloLectura = 10000; // Leer cada 10 segundos
 unsigned long ultimoTiempoLectura = 0;
 
 void setup() {
@@ -115,7 +115,7 @@ void loop() {
     ultimoTiempoLectura = millis();
     // Puedes descomentar el siguiente bloque si quieres que la ESP32 envíe
     // las lecturas periódicamente sin necesidad de un comando.
-    /*
+    
     float temperatura = dht.readTemperature();
     float humedad = dht.readHumidity();
 
@@ -134,7 +134,7 @@ void loop() {
       Serial.println("Error al leer temperatura y/o humedad (Lectura periódica)!");
       SerialBT.println("Error al leer temperatura y/o humedad (Lectura periódica)!");
     }
-    */
+    
   }
 
   delay(20); // Pequeña pausa
